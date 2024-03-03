@@ -154,3 +154,11 @@ const writeToFile = (html) => {
             addTeamMember();
           });
      };
+     const finishBuilding = () => {
+        const html = render(teamMembers);
+        writeToFile(html);
+     };
+    addManager();
+
+    
+    init();
