@@ -12,4 +12,15 @@ const render = require("./src/page-template.js");
 
 
 // TODO: Write Code to gather information about the development team members, and render the HTML file.
-
+// This Function writes the HTML to a file
+const writeToFile = (html) => {
+    const outputPath = path.resolve(__dirname, 'output', 'team.html');
+    fs.writeFile(outputPath, html, (err) => {
+       if (err) throw err;
+       console.log('The file has been saved!');
+    });
+   };
+   
+   // Function to initialize the application
+   function init() {
+    let teamMembers = [];
