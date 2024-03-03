@@ -25,15 +25,40 @@ const writeToFile = (html) => {
    function init() {
     let teamMembers = [];
 
-    const addTeamMember = () => {
+    const addManager = () => {
         inquirer
           .prompt([
             {
-              type: 'list',
-              name: 'addMember',
-              message: 'Please enter your team manager name?',
-              choices: ['Engineer', 'Intern', 'Team Manager'],
+              type: 'input',
+              name: 'managerName',
+              message: "Please enter your Team Manager's Name:",
             },
+            {
+              type: 'input',
+              name: 'managerId',
+              message: "Please enter yourTeam Manager's Employee ID:",
+            },
+            {
+              type: 'input',
+              name: 'managerEmail',
+              message: "Please enter your Team Manager's Email Address:",
+              validate: function(value) {
+                var pass = value.match(
+                  /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/i
+                );
+                if (pass) {
+                  return true;
+                }
+                return 'Please enter a valid email address.';
+              },
+            },
+            {
+              type: 'input',
+              name: 'managerOfficeNumber',
+              message: "Please enter your Team Manager's Office Number:",
+            },
+
+            
           ])
           .then((answers) => {
             if (answers.addMember === 'Engineer') {
