@@ -21,7 +21,7 @@ const writeToFile = (html) => {
     });
    };
    
-   // Function to initialize the application
+   // Function to initialize the application and add team manager's information
    function init() {
     let teamMembers = [];
 
@@ -57,9 +57,23 @@ const writeToFile = (html) => {
               name: 'managerOfficeNumber',
               message: "Please enter your Team Manager's Office Number:",
             },
-
-            
-          ])
+        ]) //This function adds the answers
+        .then((answers) => {
+          const manager = new Manager(answers.managerName, answers.managerId, answers.managerEmail, answers.managerOfficeNumber);
+          teamMembers.push(manager);
+          addTeamMember();
+        });
+   };
+   const addTeamMember = () => {
+    inquirer
+      .prompt([
+        {
+          type: 'list',
+          name: 'addMember',
+          message: 'Which type of team member would you like to add?',
+          choices: ['Engineer', 'Intern', 'Finish building the team'],
+        },
+      ])
           .then((answers) => {
             if (answers.addMember === 'Engineer') {
               addEngineer();
