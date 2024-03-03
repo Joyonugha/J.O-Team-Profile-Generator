@@ -90,22 +90,22 @@ const writeToFile = (html) => {
             {
               type: 'input',
               name: 'engineerName',
-              message: "Engineer's Name:",
+              message: "Please enter the Engineer's Name:",
             },
             {
               type: 'input',
               name: 'engineerId',
-              message: "Engineer's ID:",
+              message: "Please enter the Engineer's ID:",
             },
             {
               type: 'input',
               name: 'engineerEmail',
-              message: "Engineer's Email:",
+              message: "Please enter the Engineer's Email:",
             },
             {
               type: 'input',
               name: 'engineerGithub',
-              message: "Engineer's GitHub username:",
+              message: "Please enter the Engineer's GitHub username:",
             },
           ])
           .then((answers) => {
@@ -113,22 +113,44 @@ const writeToFile = (html) => {
             teamMembers.push(engineer);
             addTeamMember();
           });
-     };
+     }; //The function and questions will prompt the user to enter the intern's name and other details
+        //if they select the intern option from the menu
      const addIntern = () => {
         inquirer
           .prompt([
             {
               type: 'input',
               name: 'internName',
-              message: "Intern's Name:",
+              message: "Please enter the Intern's Name:",
             },
             {
               type: 'input',
               name: 'internId',
-              message: "Intern's ID:",
+              message: "Please enter the Intern's ID:",
             },
             {
               type: 'input',
               name: 'internEmail',
-              message: "Intern's Email:",
-             
+              message: "Please enter the Intern's Email:",
+              validate: function(value) {
+                var pass = value.match(
+                  /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/i
+                );
+                if (pass) {
+                  return true;
+                }
+                return 'Please enter a valid email address.';
+              },
+            },
+            {
+              type: 'input',
+              name: 'internSchool',
+              message: "Please enter the Intern's School:",
+            },
+          ])
+          .then((answers) => {
+            const intern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.internSchool);
+            teamMembers.push(intern);
+            addTeamMember();
+          });
+     };
