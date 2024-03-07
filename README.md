@@ -3,6 +3,7 @@
 This project is a Node.js command-line application designed to generate an HTML webpage displaying summaries of software engineering team members. It utilizes object-oriented programming principles to create a structured and scalable solution.
 
 ## Project Overview
+
 The application allows a manager to input information about team members, which includes their name, employee ID, email, and specific details relevant to their role (e.g., office number for managers, GitHub username for engineers, and school for interns). This information is then used to generate a dynamic HTML page that showcases each team member's profile. The generated HTML is saved to a file named team.html in an output folder.
 
 ## Table of Contents
@@ -10,9 +11,10 @@ The application allows a manager to input information about team members, which 
 - [Features](#features)
 - [Screenshots](#screenshots)
 - [Usage](#usage)
-- [Expected Output](#expected-output)
+- [Technical Requirements](#technical-requirements)
 - [Contributing](#contributing)
 - [License](#license)
+- [Contact](#contact)
 
 ## Features
 
@@ -32,6 +34,7 @@ I have attached screenshots of the outcome running it in node mode and how it lo
 ![Screenshot2](/assets/Screenshot%202024-03-07%20at%2003.28.06.png)
 
 ## Usage
+
 To get started with the project, follow these steps:
 
 * Clone the Repository: Clone this repository to your local machine.
@@ -57,5 +60,5 @@ Contributions to this project are welcome. Please ensure that any pull requests 
 ## License
 This project is licensed under the MIT License. See the LICENSE file for details.
 
-Contact
+## Contact
 For any questions or feedback, please open an issue on this repository.
